@@ -430,8 +430,11 @@ section {
 }
 .social-links a .fa-facebook-square { color: var(--primary-color); }
 .social-links a .fa-whatsapp-square { color: var(--primary-color); }
+.social-links a .fa-youtube-square { color: var(--primary-color); }
 .social-links a:hover .fa-facebook-square { color: var(--dark-primary-color); }
 .social-links a:hover .fa-whatsapp-square { color: var(--dark-primary-color); }
+.social-links a:hover .fa-youtube-square { color: var(--dark-primary-color); }
+
 
 
 .contact-form .form-group {
