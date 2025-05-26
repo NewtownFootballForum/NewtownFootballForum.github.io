@@ -75,7 +75,7 @@ section {
 *:focus-visible {
     outline: 3px solid var(--primary-color);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(0,123,255,.25);
+    box-shadow: 0 0 0 4px rgba(173, 120, 41, .25); /* Updated rgba to match --primary-color */
 }
 
 
@@ -293,12 +293,12 @@ section {
     color: var(--primary-color);
 }
 .btn-event {
-    background-color: var(--primary-color); /* Teal */
+    background-color: var(--primary-color); 
     color: var(--bg-white);
     margin-top: 15px;
 }
 .btn-event:hover {
-    background-color: var(--dark-primary-color); /* Darker Teal */
+    background-color: var(--dark-primary-color); 
 }
 .btn-event i {
     margin-left: 5px;
@@ -315,7 +315,7 @@ section {
     }
     .event-card img {
         width: 40%;
-        max-height: auto; 
+        max-height: auto;
         object-fit: cover;
     }
     .event-info {
@@ -413,28 +413,28 @@ section {
     margin-bottom: 0.75rem;
 }
 .social-links a {
-    color: var(--text-color);
+    color: var(--text-color); /* Color for the text part of the link e.g., "Facebook" */
     font-size: 1.1rem;
     display: inline-flex; /* Align icon and text */
     align-items: center;
 }
 .social-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Text part hovers to primary color */
     text-decoration: none;
 }
-.social-links a i {
+
+/* Unified styling for brand icons in .social-links */
+.social-links a i.fab {
     margin-right: 10px;
     font-size: 1.6rem;
     vertical-align: middle;
     transition: color 0.3s ease;
+    color: var(--primary-color); /* All brand icons get primary color */
 }
-.social-links a .fa-facebook-square { color: var(--primary-color); }
-.social-links a .fa-whatsapp-square { color: var(--primary-color); }
-.social-links a .fa-youtube-square { color: var(--primary-color); }
-.social-links a:hover .fa-facebook-square { color: var(--dark-primary-color); }
-.social-links a:hover .fa-whatsapp-square { color: var(--dark-primary-color); }
-.social-links a:hover .fa-youtube-square { color: var(--dark-primary-color); }
 
+.social-links a:hover i.fab {
+    color: var(--dark-primary-color); /* All brand icons get dark primary on hover */
+}
 
 
 .contact-form .form-group {
@@ -461,7 +461,7 @@ section {
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus { /* Custom focus for form fields */
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    box-shadow: 0 0 0 0.2rem rgba(173, 120, 41, .25); /* Updated rgba */
     outline: none;
 }
 .contact-form textarea {
@@ -500,14 +500,20 @@ footer a:focus-visible {
     margin-top: 10px;
 }
 .footer-socials a {
-    color: var(--text-inverted);
+    color: var(--text-inverted); /* Default color for the <a> tag, icon will inherit this */
     margin: 0 12px;
     font-size: 1.6rem;
     transition: color 0.3s ease;
 }
 .footer-socials a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Hover color for <a> tag, icon will inherit */
 }
+
+/* Explicitly style icons in footer to ensure they inherit from <a> tag, overriding FA brand defaults if any */
+.footer-socials a i.fab {
+    color: inherit; /* Makes the icon inherit color from its parent <a> tag */
+}
+
 .footer-socials a:focus-visible {
     color: var(--primary-color);
     outline: 2px solid var(--primary-color);
@@ -752,9 +758,15 @@ footer a:focus-visible {
     .gallery-grid {
         grid-template-columns: 1fr; /* Single column on very small screens */
     }
+    .event-card { /* Adjust event card for mobile */
+        flex-direction: column;
+    }
     .event-card img {
-        width: 25%;
-        max-height: auto;
+        width: 100%; /* Image takes full width */
+        max-height: 200px; /* Or a suitable height */
+    }
+    .event-info {
+        width: 100%;
     }
     .lightbox-prev { left: 5px; }
     .lightbox-next { right: 5px; }
